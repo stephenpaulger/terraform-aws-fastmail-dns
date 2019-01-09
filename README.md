@@ -17,7 +17,8 @@ resource "aws_route53_zone" "primary" {
 }
 
 module "fastmail_dns" {
-  source = "./fastmail-dns"
+  source  = "stephenpaulger/fastmail-dns/aws"
+  version = "1.0.1"
 
   zone_id = "${aws_route53_zone.primary.zone_id}"
   domain = "${var.domain}"
