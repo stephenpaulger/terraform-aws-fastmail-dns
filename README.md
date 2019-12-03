@@ -1,7 +1,7 @@
 # Terraform Fastmail DNS
 
 Add [DNS records suggested by fastmail](https://www.fastmail.com/help/receive/domains-advanced.html)
-in order to:-
+in order to:
 
  * set MX records for your domain and all subdomains,
  * allow web mail to be accessed at mail.yourdomain.com,
@@ -13,14 +13,14 @@ At present this module does not add entries for email, CalDAV and CardDAV client
 
 ```
 resource "aws_route53_zone" "primary" {
-  name = "${var.domain}"
+  name = var.domain
 }
 
 module "fastmail_dns" {
   source  = "stephenpaulger/fastmail-dns/aws"
   version = "1.0.1"
 
-  zone_id = "${aws_route53_zone.primary.zone_id}"
-  domain = "${var.domain}"
+  zone_id = aws_route53_zone.primary.zone_id
+  domain = var.domain
 }
 ```
