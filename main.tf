@@ -13,7 +13,7 @@ locals {
 }
 
 resource "aws_route53_record" "mail" {
-  zone_id = "${var.zone_id}"
+  zone_id = var.zone_id
   name    = "mail.${var.domain}"
   type    = "A"
   ttl     = "300"
@@ -25,10 +25,10 @@ resource "aws_route53_record" "mail" {
 }
 
 resource "aws_route53_record" "mx" {
-  count = "${length(local.mx_hosts)}"
+  count = length(local.mx_hosts)
 
-  zone_id = "${var.zone_id}"
-  name    = "${element(local.mx_hosts, count.index)}"
+  zone_id = var.zone_id
+  name    = element(local.mx_hosts, count.index)
   type    = "MX"
   ttl     = "300"
 
@@ -39,8 +39,8 @@ resource "aws_route53_record" "mx" {
 }
 
 resource "aws_route53_record" "spf" {
-  zone_id = "${var.zone_id}"
-  name    = "${var.domain}"
+  zone_id = var.zone_id
+  name    = var.domain
   type    = "TXT"
   ttl     = "300"
 
@@ -50,9 +50,9 @@ resource "aws_route53_record" "spf" {
 }
 
 resource "aws_route53_record" "dkim" {
-  count = "${length(local.dkim_hosts)}"
+  count = length(local.dkim_hosts)
 
-  zone_id = "${var.zone_id}"
+  zone_id = var.zone_id
   name    = "${element(local.dkim_hosts, count.index)}._domainkey.${var.domain}"
   type    = "CNAME"
   ttl     = "300"
