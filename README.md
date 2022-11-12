@@ -1,6 +1,6 @@
 # Terraform Fastmail DNS
 
-Add [DNS records suggested by fastmail](https://www.fastmail.com/help/receive/domains-advanced.html)
+Add [DNS records suggested by fastmail](https://www.fastmail.help/hc/en-us/articles/360060591153)
 in order to:
 
  * set MX records for your domain and all subdomains,
