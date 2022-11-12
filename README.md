@@ -11,14 +11,14 @@ At present this module does not add entries for email, CalDAV and CardDAV client
 
 ## Usage
 
-```
+```hcl
 resource "aws_route53_zone" "primary" {
   name = var.domain
 }
 
 module "fastmail_dns" {
   source  = "stephenpaulger/fastmail-dns/aws"
-  version = "1.0.1"
+  version = "1.0.0"
 
   zone_id = aws_route53_zone.primary.zone_id
   domain = var.domain
