@@ -1,3 +1,15 @@
+terraform {
+  required_version = ">= 0.13"
+
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.39.0"
+    }
+  }
+}
+
+
 locals {
   dkim_hosts = [
     "fm1",
@@ -6,7 +18,7 @@ locals {
   ]
 
   mx_hosts = [
-    "${var.domain}",
+    var.domain,
     "*.${var.domain}",
     "mail.${var.domain}",
   ]
