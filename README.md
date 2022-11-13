@@ -9,6 +9,13 @@ in order to:
 
 At present this module does not add entries for email, CalDAV and CardDAV clients to auto-discover settings.
 
+
+## Requirements
+
+- Terraform 0.13+
+- [aws provider 4.39.0](https://registry.terraform.io/providers/hashicorp/aws/4.39.0/docs)
+
+
 ## Usage
 
 ```hcl
