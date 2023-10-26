@@ -12,8 +12,8 @@ At present this module does not add entries for email, CalDAV and CardDAV client
 
 ## Requirements
 
-- Terraform 0.13+
-- [aws provider 4.39.0](https://registry.terraform.io/providers/hashicorp/aws/4.39.0/docs)
+- Terraform 1.6.2
+- [aws provider 5.22.0](https://registry.terraform.io/providers/hashicorp/aws/5.22.0/docs)
 
 
 ## Usage
@@ -25,7 +25,7 @@ resource "aws_route53_zone" "primary" {
 
 module "fastmail_dns" {
   source  = "stephenpaulger/fastmail-dns/aws"
-  version = "2.0.0"
+  version = "3.0.0"
 
   zone_id = aws_route53_zone.primary.zone_id
   domain  = var.domain
